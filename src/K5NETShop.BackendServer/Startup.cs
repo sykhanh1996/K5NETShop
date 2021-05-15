@@ -32,7 +32,7 @@ namespace K5NETShop.BackendServer
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             //2. Setup idetntity
-            services.AddIdentity<AppUser, AppRole>()
+            services.AddIdentity<AppUser, AppRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.Configure<IdentityOptions>(options =>
@@ -51,7 +51,7 @@ namespace K5NETShop.BackendServer
             });
             services.AddTransient<K5NETShopDBInitializer>();
             services.AddDatabaseDeveloperPageExceptionFilter();
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
         }

@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using K5NETShop.BackendServer.Data.Entities
 @inject SignInManager<AppUser> SignInManager
-@inject UserManager<AppRole> UserManager
+@inject UserManager<AppUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
