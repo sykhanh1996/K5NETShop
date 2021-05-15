@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using K5NETShop.BackendServer.API.Data.Entities;
+using K5NETShop.ViewModels.Systems;
 
 namespace K5NETShop.BackendServer.API.Automapper
 {

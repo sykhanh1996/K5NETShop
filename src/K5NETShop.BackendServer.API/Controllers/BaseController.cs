@@ -10,7 +10,7 @@ namespace K5NETShop.BackendServer.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize("Bearer")]
+    //[Authorize("Bearer")]
     public class BaseController : ControllerBase
     {
     }

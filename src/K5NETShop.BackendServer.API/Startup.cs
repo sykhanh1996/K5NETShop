@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 using K5NETShop.BackendServer.API.Data;
 using K5NETShop.BackendServer.API.Data.Entities;
+using K5NETShop.ViewModels.Systems;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,6 +57,10 @@ namespace K5NETShop.BackendServer.API
                 options.User.RequireUniqueEmail = true;
             });
             services.AddTransient<K5NETShopDBInitializer>();
+
+            services.AddAutoMapper(typeof(Startup));
+            services.AddControllers()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<RoleCreateRequestValidator>());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "K5NETShop.BackendServer.API", Version = "v1" });
